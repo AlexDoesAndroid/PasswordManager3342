@@ -23,7 +23,7 @@
         // Check DB to see if SessionCode exists
         // print "Cookie found <br>";
         $CookieValue = $_COOKIE[$CookieName];
-        $query = "select * from Users where SessionCode = '$CookieValue';";
+        $query = "select * from User_Manager where SessionCode = '$CookieValue';";
         $result = mysqli_query($con, $query);
         if (!$result){
             // print "Login query failed, either password or email don't match: ".mysqli_error($con);
@@ -48,7 +48,7 @@
     }
     // print "cookie not found. Regular login <br>";
     // Build query to check if email and password match in database
-    $query = "Select * from Users where Email='$Email' and Password='$Password';";      // Check if the user Email and encrypted Password match with database.
+    $query = "Select * from User_Manager where Email='$Email' and Password='$Password';";      // Check if the user Email and encrypted Password match with database.
     $result = mysqli_query($con, $query);
     if(!$result){   // If not match, set negative RegState, report "Either password or email not match", redirect back to index.php.
         // print "Login query failed, either password or email don't match: ".mysqli_error($con);
@@ -84,7 +84,7 @@
     // print "Seeded rand($CookieContent) <br>";
     $Ldatetime = date("Y-m-d h:i:s");
     //Update DB
-    $query = "update Users set SessionCode = '$CookieContent', Ldatetime='$Ldatetime' where Email='$Email';";
+    $query = "update User_Manager set SessionCode = '$CookieContent', LoginDateTime='$Ldatetime' where Email='$Email';";
     $result = mysqli_query($con, $query);
     if(!$result){   
         // print "Login update query failed : ".mysqli_error($con);

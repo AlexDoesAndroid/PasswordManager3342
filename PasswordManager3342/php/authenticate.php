@@ -16,7 +16,7 @@
 	$Acode = $_GET["Acode"];
 	$Email = $_SESSION["Email"];
 	// print "Webdata ($Acode) ($Email) <br>";
-	$query = "Select * from Users where Acode='$Acode' and Email='$Email';";
+	$query = "Select * from User_Manager where Acode='$Acode' and Email='$Email';";
 	$result = mysqli_query($con, $query);
 	if (!$result) {
 		print "Authentication query failed: ".mysqli_error($con);
@@ -37,7 +37,7 @@
 	// Must Update ACode for hacking prevention
 	$Acode = rand(10000, 99999);
 	$ADateTime = date("Y-m-d h:i:s");
-	$query = "Update Users set Acode='$Acode', ADateTime = '$ADateTime' where Email = '$Email';";
+	$query = "Update User_Manager set Acode='$Acode', AuthDateTime = '$ADateTime' where Email = '$Email';";
 	$result = mysqli_query($con, $query);
 	if (!$result) {
 		// print "Acode update failed: ".mysqli_error($con);

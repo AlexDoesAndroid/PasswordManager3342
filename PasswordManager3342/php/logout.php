@@ -11,7 +11,7 @@
     }
     $LOdatetime = date("Y-m-d h:i:s");
     $Email = $_SESSION["Email"];
-    $query = "update Users set LOdatetime='$LOdatetime' where Email = '$Email';";
+    $query = "update User_Manager set LogoutDateTime='$LOdatetime' where Email = '$Email';";
     $result = mysqli_query($con, $query);
     if(!$result){
         $_SESSION["Message"] = "Update query failed while logout: ".mysqli_error($con);
