@@ -16,26 +16,26 @@
 	if (!$con) {
 		$_SESSION["Message"] = "Database connection failed: ".mysqli_error($con);
 		$_SESSION["RegState"] = 5;
-		header("location:../index.php");
+		header("location:../login.html");
 		exit();		
 	}
     print "database connected <br>";
     // Build Query
-    $query = "Select * from Users where Email = '$Email';";
+    $query = "Select * from User_Manager where Email = '$Email';";
     // Run the query
     $result = mysqli_query($con, $query);
     if(!$result){
         print "Check email query failed: ".mysqli_error($con);
         $_SESSION["Message"] = "Check Email query failed: ".mysqli_error($con);
 		$_SESSION["RegState"] = 5;
-        header("location:../index.php");
+        header("location:../login.html");
 		exit();	
     }
     // Check mysqli_num_rows() == 1
     if (mysqli_num_rows($result) != 1){
         $_SESSION["Message"] = "Email check failed: ".mysqli_error($con);
         $_SESSION["RegState"] = 5;
-        header("location:../index.php");
+        header("location:../login.html");
         exit();
     }
     print "Email found <br>";
@@ -52,7 +52,7 @@
     if(!$result){
         $_SESSION["Message"] = "Acode update query failed: ".mysqli_error($con);
         $_SESSION["RegState"] = 5;
-        header("location:../index.php");
+        header("location:../login.html");
         exit();
     }
     print "Acode updated <br>";
@@ -73,7 +73,7 @@
 		$mail->addReplyTo("tuj54380@temple.edu","Alex Michaelson");
 		$msg = "If you forgot your password you can use this code to reset: $Acode. Please complete the resetPassword process on site.";
 		$mail->addAddress($Email,"$FirstName $LastName");
-		$mail->Subject = "Welcome to Alex's lab 4";
+		$mail->Subject = "Welcome to the Password Management Application";
 		$mail->Body = $msg;
 		$mail->send();
 		print "Email sent ... <br>";
@@ -86,6 +86,6 @@
 		print "Mail send failed: ".$e->errorMessage;		
 	}
     // Return
-    header("location:../index.php");
+    header("location:../login.html");
     exit();
 ?>
