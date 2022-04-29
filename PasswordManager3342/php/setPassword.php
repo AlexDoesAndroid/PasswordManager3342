@@ -11,7 +11,7 @@
         exit();
     }
     $Email = $_SESSION["Email"];
-    $Adatetime = date("Y-m-d h:i:s");
+    $AuthDateTime = date("Y-m-d h:i:s");
     // print "Webdata ($Email)($Password1) <br>";
     // print "Webdata ($Adatetime) <br>";       //Anaconda Testing
     // connect to DB
@@ -24,7 +24,7 @@
         exit();		
 	}
     // Build update add RSPWCount += RSPWCount +1
-    $query = "Update Users set Password  = '$Password1' , Adatetime = '$Adatetime' where Email='$Email';";
+    $query = "Update User_Manager set Acc_Password  = '$Password1' , AuthDateTime = '$AuthDateTime' where Email='$Email';";
     $result = mysqli_query($con, $query);
 	if (!$result){
         $_SESSION["RegState"] = 2;
@@ -43,7 +43,7 @@
     }
     //print "Password set. <br>";
     //track RSPW count
-    $query = "Update Users set RSPWCount= RSPWCount + 1 where Email='$Email';";
+    $query = "Update User_Manager set RSPWCount= RSPWCount + 1 where Email='$Email';";
     $result = mysqli_query($con, $query);
 	if (!$result){
         $_SESSION["RegState"] = 2;
