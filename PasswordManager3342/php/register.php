@@ -47,14 +47,14 @@
 		$mail->IsSMTP();
 		$mail->Host="smtp.gmail.com";
 		$mail->SMTPAuth=true;
-		$mail->Username="Alex3324mail@gmail.com";
-		$mail->Password = "2B5NktXtMNuXhqT";
+		$mail->Username="Group4CIS3342@gmail.com";
+		$mail->Password = "PasswordManager2022";
 		$mail->SMTPSecure = "ssl";
 		$mail->Port=465;
 		$mail->SMTPKeepAlive = true; 
 		$mail->Mailer = "smtp";
-		$mail->setFrom("tuj54380@temple.edu", "Alex Michaelson");
-		$mail->addReplyTo("tuj54380@temple.edu","Alex Michaelson");
+		$mail->setFrom("Group4CIS3342@gmail.com", "S22CIS3342 Group 4");
+		$mail->addReplyTo("Group4CIS3342@gmail.com","S22CIS3342 Group 4");
 		$msg = "Your authentication code is $Acode. Please complete the registration process on site.";
 		$mail->addAddress($Email,"$FirstName $LastName");
 		$mail->Subject = "Welcome to the Group 4's' Password Management App";
