@@ -16,8 +16,8 @@
 	if (!$con) {
 		$_SESSION["Message"] = "Database connection failed: ".mysqli_error($con);
 		$_SESSION["RegState"] = 5;
-		header("location:../login.html");
-		exit();		
+		echo json_encode($_SESSION);
+		exit();	
 	}
     print "database connected <br>";
     // Build Query
@@ -28,14 +28,14 @@
         print "Check email query failed: ".mysqli_error($con);
         $_SESSION["Message"] = "Check Email query failed: ".mysqli_error($con);
 		$_SESSION["RegState"] = 5;
-        header("location:../login.html");
+        echo json_encode($_SESSION);
 		exit();	
     }
     // Check mysqli_num_rows() == 1
     if (mysqli_num_rows($result) != 1){
         $_SESSION["Message"] = "Email check failed: ".mysqli_error($con);
         $_SESSION["RegState"] = 5;
-        header("location:../login.html");
+        echo json_encode($_SESSION);
         exit();
     }
     print "Email found <br>";
@@ -52,7 +52,7 @@
     if(!$result){
         $_SESSION["Message"] = "Acode update query failed: ".mysqli_error($con);
         $_SESSION["RegState"] = 5;
-        header("location:../login.html");
+        echo json_encode($_SESSION);
         exit();
     }
     print "Acode updated <br>";
@@ -86,6 +86,6 @@
 		print "Mail send failed: ".$e->errorMessage;		
 	}
     // Return
-    header("location:../login.html");
+    echo json_encode($_SESSION);
     exit();
 ?>
