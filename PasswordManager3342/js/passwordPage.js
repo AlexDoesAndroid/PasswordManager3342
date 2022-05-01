@@ -1,4 +1,4 @@
-﻿$("#newPasswordBtn").click(function (e) {
+$("#newPasswordBtn").click(function (e) {
     event.preventDefault(e);
     // Get form data items
     var formData = {
