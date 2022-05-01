@@ -23,7 +23,7 @@ $(document).ready(function(){
         RegState = parseInt(data.RegState);
         //UI routing here
 		if (RegState == 4) {
-			window.location.href="protected.html";
+			window.location.href="passwordManagment.html";
 		}
         if (RegState <= 0){
             $("#loginForm").show();
@@ -229,7 +229,7 @@ $(document).ready(function(){
             RegState = parseInt(data.RegState);
             if(RegState == 4){
                 // redirect to protected.html
-                window.location.href ="protected.html";
+                window.location.href ="passwordManagment.html";
                 return;
             }
             // Post processing all session vars

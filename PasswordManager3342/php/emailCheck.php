@@ -16,26 +16,26 @@
 	if (!$con) {
 		$_SESSION["Message"] = "Database connection failed: ".mysqli_error($con);
 		$_SESSION["RegState"] = 5;
-		header("location:../index.php");
-		exit();		
+		echo json_encode($_SESSION);
+		exit();	
 	}
     print "database connected <br>";
     // Build Query
-    $query = "Select * from Users where Email = '$Email';";
+    $query = "Select * from User_Manager where Email = '$Email';";
     // Run the query
     $result = mysqli_query($con, $query);
     if(!$result){
         print "Check email query failed: ".mysqli_error($con);
         $_SESSION["Message"] = "Check Email query failed: ".mysqli_error($con);
 		$_SESSION["RegState"] = 5;
-        header("location:../index.php");
+        echo json_encode($_SESSION);
 		exit();	
     }
     // Check mysqli_num_rows() == 1
     if (mysqli_num_rows($result) != 1){
         $_SESSION["Message"] = "Email check failed: ".mysqli_error($con);
         $_SESSION["RegState"] = 5;
-        header("location:../index.php");
+        echo json_encode($_SESSION);
         exit();
     }
     print "Email found <br>";
@@ -52,7 +52,7 @@
     if(!$result){
         $_SESSION["Message"] = "Acode update query failed: ".mysqli_error($con);
         $_SESSION["RegState"] = 5;
-        header("location:../index.php");
+        echo json_encode($_SESSION);
         exit();
     }
     print "Acode updated <br>";
@@ -63,17 +63,17 @@
 		$mail->IsSMTP();
 		$mail->Host="smtp.gmail.com";
 		$mail->SMTPAuth=true;
-		$mail->Username="Alex3324mail@gmail.com";
-		$mail->Password = "2B5NktXtMNuXhqT";
+		$mail->Username="Group4CIS3342@gmail.com";
+		$mail->Password = "PasswordManager2022";
 		$mail->SMTPSecure = "ssl";
 		$mail->Port=465;
 		$mail->SMTPKeepAlive = true; 
 		$mail->Mailer = "smtp";
-		$mail->setFrom("tuj54380@temple.edu", "Alex Michaelson");
-		$mail->addReplyTo("tuj54380@temple.edu","Alex Michaelson");
+		$mail->setFrom("Group4CIS3342@gmail.com", "S22CIS3342 Group 4");
+		$mail->addReplyTo("Group4CIS3342@gmail.com","S22CIS3342 Group 4");
 		$msg = "If you forgot your password you can use this code to reset: $Acode. Please complete the resetPassword process on site.";
 		$mail->addAddress($Email,"$FirstName $LastName");
-		$mail->Subject = "Welcome to Alex's lab 4";
+		$mail->Subject = "Welcome to the Group 4's' Password Management App";
 		$mail->Body = $msg;
 		$mail->send();
 		print "Email sent ... <br>";
@@ -86,6 +86,6 @@
 		print "Mail send failed: ".$e->errorMessage;		
 	}
     // Return
-    header("location:../index.php");
+    echo json_encode($_SESSION);
     exit();
 ?>
