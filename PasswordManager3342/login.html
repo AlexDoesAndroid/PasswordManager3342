@@ -1,159 +1,158 @@
-
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="">
-	<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-	<meta name="generator" content="Hugo 0.88.1">
-	<title>Group 4 Password Management App</title>
-	<!-- Bootstrap core CSS -->
-	<script src="js/jquery-3.6.0.min.js"></script>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>Group 4 Password Managment App</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-	<!-- Favicons -->
-	<link rel="icon" href="images/favicon.ico">
-	<meta name="theme-color" content="#7952b3">
-
-
-	<style>
-		.bd-placeholder-img {
-			font-size: 1.125rem;
-			text-anchor: middle;
-			-webkit-user-select: none;
-			-moz-user-select: none;
-			user-select: none;
-		}
-
-		.body {
-			background: black;
-		}
-
-		@media (min-width: 768px) {
-			.bd-placeholder-img-lg {
-				font-size: 3.5rem;
-			}
-		}
-	</style>
+    <!-- Favicons -->
+    <link rel="icon" href="images/favicon.jpg">
+    <meta name="theme-color" content="#7952b3">
 
 
-	<!-- Custom styles for this template -->
-	<link href="css/signin.css" rel="stylesheet">
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
 
-	<script src="js/lab4.js"></script>
+        .body {
+            background: black;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="css/signin.css" rel="stylesheet">
+    <script src="Scripts/jquery-3.6.0.min.js"></script>
+    <script src="js/lab4.js"></script>
+
 </head>
 <body class="text-center">
-	<main class="form-signin">
+    <main class="form-signin">
 
-	    <form id="loginForm">
-			<img class="mb-4" src="images/bootstrap-logo.svg" alt="" width="72" height="57">
-			<h1 class="h3 mb-3 fw-normal">Group 4 Password Management App</h1>
-			<div class="form-floating">
-				<input type="email" name="loginEmail" class="form-control" id="floatingInput" placeholder="name@example.com" required>
-				<label for="floatingInput">Email address</label>
-			</div>
-			<div class="form-floating">
-				<input type="password" name="Password" class="form-control" id="floatingPassword" placeholder="Password">
-				<label for="floatingPassword">Password</label>
-			</div>
-			<div class="checkbox mb-3">
-				<label>
-					<input type="checkbox" name="RememberMe" value="remember-me"> Remember me
-				</label>
-			</div>
-			<button class="w-100 btn btn-lg btn-primary" id="loginBtn" type="submit">Sign in</button>
-			<div class ="w-100 btn btn-lg btn-warning" id = "loginMessage">
-			</div>
-			<a href="#" id="registerClick">Register</a> 
-			<a href="#" id="forgetClick">Forget?</a>
-			<p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p> 
-		</form> 
+        <form id="loginForm">
+            <img class="mb-4" src="images/bootstrap-logo.svg" alt="" width="72" height="57">
+            <h1 class="h3 mb-3 fw-normal">Welcome to Group 4s Password Managment App</h1>
+            <div class="form-floating">
+                <input type="email" name="loginEmail" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+                <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" name="Password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+            </div>
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" name="RememberMe" value="remember-me"> Remember me
+                </label>
+            </div>
+            <button class="w-100 btn btn-lg btn-primary" id="loginBtn" type="submit">Sign in</button>
+            <div class="w-100 btn btn-lg btn-warning" id="loginMessage">
+            </div>
+            <a href="#" id="registerClick">Register</a>
+            <a href="#" id="forgetClick">Forget?</a>
+            <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+        </form>
 
-	    <div id="registerForm">
-			<form>
-				<img class="mb-4" src="images/bootstrap-logo.svg" alt="" width="72" height="57">
-				<h1 class="h3 mb-3 fw-normal">Please Register</h1>
-				<div class="form-floating">
-					<input type="text" class="form-control" name="FirstName" id="floatingFirstName" placeholder="Your first name">
-					<label for="floatingFirstName">First Name</label>
-				</div>
-				<div class="form-floating">
-					<input type="text" class="form-control" name="LastName" id="floatingLastName" placeholder="Your last name">
-					<label for="floatingLastName">Last Name</label>
-				</div>
-				<div class="form-floating">
-					<input type="email" class="form-control" name="Email" id="floatingInput2" placeholder="name@example.com">
-					<label for="floatingInput2">Email address</label>
-				</div> 
-				<button class="w-100 btn btn-lg btn-primary" id="registerBtn" type="submit">Register</button>
-				<div class="w-100 btn btn-lg btn-warning" id="registerMessage">
-				</div>
-			</form>
-			<form id="authenticationForm">
-				<h1 class="h3 mb-3 fw-normal">Please Enter Authentication Code</h1>
-				<div class="form-floating">
-					<input type="text" class="form-control" name="Acode" id="floatingAcode" placeholder="Your Acode here">
-					<label for="floatingFirstName">Authentication Code</label>
-				</div>
-				<button class="w-100 btn btn-lg btn-primary" id="authBtn" type="submit">Check</button>
-				<div class="w-100 btn btn-lg btn-warning" id="authenticateMessage">
-				</div>
-				<a href="#" class="backClick">
-					<p class="mt-5 mb-3 text-muted">
-						Back
-					</p>
-				</a>
-			</form>
-		</div>
+        <div id="registerForm">
+            <form>
+                <img class="mb-4" src="images/bootstrap-logo.svg" alt="" width="72" height="57">
+                <h1 class="h3 mb-3 fw-normal">Please Register</h1>
+                <div class="form-floating">
+                    <input type="text" class="form-control" name="FirstName" id="floatingFirstName" placeholder="Your first name">
+                    <label for="floatingFirstName">First Name</label>
+                </div>
+                <div class="form-floating">
+                    <input type="text" class="form-control" name="LastName" id="floatingLastName" placeholder="Your last name">
+                    <label for="floatingLastName">Last Name</label>
+                </div>
+                <div class="form-floating">
+                    <input type="email" class="form-control" name="Email" id="floatingInput2" placeholder="name@example.com">
+                    <label for="floatingInput2">Email address</label>
+                </div>
+                <button class="w-100 btn btn-lg btn-primary" id="registerBtn" type="submit">Register</button>
+                <div class="w-100 btn btn-lg btn-warning" id="registerMessage">
+                </div>
+            </form>
+            <form id="authenticationForm">
+                <h1 class="h3 mb-3 fw-normal">Please Enter Authentication Code</h1>
+                <div class="form-floating">
+                    <input type="text" class="form-control" name="Acode" id="floatingAcode" placeholder="Your Acode here">
+                    <label for="floatingFirstName">Authentication Code</label>
+                </div>
+                <button class="w-100 btn btn-lg btn-primary" id="authBtn" type="submit">Check</button>
+                <div class="w-100 btn btn-lg btn-warning" id="authenticateMessage">
+                </div>
+                <a href="#" class="backClick">
+                    <p class="mt-5 mb-3 text-muted">
+                        Back
+                    </p>
+                </a>
+            </form>
+        </div>
 
-	    <form id="setPasswordForm">
-			<img class="mb-4" src="images/bootstrap-logo.svg" alt="" width="72" height="57">
-			<h1 class="h3 mb-3 fw-normal">Please set password</h1>
-			<div class="form-floating">
-				<input type="password" name="Password1" class="form-control" id="floatingPassword2" placeholder="Password">
-				<label for="floatingPassword2">Password</label>
-			</div>
-			<div class="form-floating">
-				<input type="password" name="Password2" class="form-control" id="floatingPassword3" placeholder="Password again">
-				<label for="floatingPassword3">Password again</label>
-			</div>
-			<button class="w-100 btn btn-lg btn-primary" id="setPasswordBtn" type="submit">Set Password</button>
-			<div class="w-100 btn btn-lg btn-warning" id="setPasswordMessage">
-			</div>
-			<a href="#" class="backClick">
-				<p class="mt-5 mb-3 text-muted">
-					Back
-				</p>
-			</a>
-		</form>
+        <form id="setPasswordForm">
+            <img class="mb-4" src="images/bootstrap-logo.svg" alt="" width="72" height="57">
+            <h1 class="h3 mb-3 fw-normal">Please set password</h1>
+            <div class="form-floating">
+                <input type="password" name="Password1" class="form-control" id="floatingPassword2" placeholder="Password">
+                <label for="floatingPassword2">Password</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" name="Password2" class="form-control" id="floatingPassword3" placeholder="Password again">
+                <label for="floatingPassword3">Password again</label>
+            </div>
+            <button class="w-100 btn btn-lg btn-primary" id="setPasswordBtn" type="submit">Set Password</button>
+            <div class="w-100 btn btn-lg btn-warning" id="setPasswordMessage">
+            </div>
+            <a href="#" class="backClick">
+                <p class="mt-5 mb-3 text-muted">
+                    Back
+                </p>
+            </a>
+        </form>
 
-	    <form id="resetPasswordForm">
-			<img class="mb-4" src="images/bootstrap-logo.svg" alt="" width="72" height="57">
-			<h1 class="h3 mb-3 fw-normal">Please Enter Registered Email</h1>
-			<div class="form-floating">
-				<input type="email" name="regedEmail" class="form-control" id="floatingEmail" placeholder="name@example.com">
-				<label for="floatingEmail">Email address</label>
-			</div>
-			<button class="w-100 btn btn-lg btn-primary mb-3" id="checkEmailBtn" type="submit">Authenticate</button>
-			<div class="w-100 btn btn-lg btn-warning" id="resetPasswordMessage">
-			</div>
-		</form>
-		<form id="authenticationForm2">
-			<h1 class="h3 mb-3 fw-normal">Please Enter Authentication Code</h1>
-			<div class="form-floating">
-				<input type="text" class="form-control" name="Acode2" id="floatingAcode2" placeholder="Your Acode here">
-				<label for="floatingACode2">Authentication Code</label>
-			</div>
-			<button class="w-100 btn btn-lg btn-primary" id="authBtn2" type="submit">Check</button>
-			<div class="w-100 btn btn-lg btn-warning" id="authenticateMessage2">
-			</div>
-			<a href="#" class="backClick">
-				<p class="mt-5 mb-3 text-muted">
-					Back
-				</p>
-			</a>
-		</form>
-	</main>    
+        <form id="resetPasswordForm">
+            <img class="mb-4" src="images/bootstrap-logo.svg" alt="" width="72" height="57">
+            <h1 class="h3 mb-3 fw-normal">Please Enter Registered Email</h1>
+            <div class="form-floating">
+                <input type="email" name="regedEmail" class="form-control" id="floatingEmail" placeholder="name@example.com">
+                <label for="floatingEmail">Email address</label>
+            </div>
+            <button class="w-100 btn btn-lg btn-primary mb-3" id="checkEmailBtn" type="submit">Authenticate</button>
+            <div class="w-100 btn btn-lg btn-warning" id="resetPasswordMessage">
+            </div>
+        </form>
+        <form id="authenticationForm2">
+            <h1 class="h3 mb-3 fw-normal">Please Enter Authentication Code</h1>
+            <div class="form-floating">
+                <input type="text" class="form-control" name="Acode2" id="floatingAcode2" placeholder="Your Acode here">
+                <label for="floatingACode2">Authentication Code</label>
+            </div>
+            <button class="w-100 btn btn-lg btn-primary" id="authBtn2" type="submit">Check</button>
+            <div class="w-100 btn btn-lg btn-warning" id="authenticateMessage2">
+            </div>
+            <a href="#" class="backClick">
+                <p class="mt-5 mb-3 text-muted">
+                    Back
+                </p>
+            </a>
+        </form>
+    </main>
 </body>
 </html>
