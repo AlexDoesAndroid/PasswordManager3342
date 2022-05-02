@@ -6,9 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
-    <title></title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link rel="icon" href="images/favicon.jpg">
+    <meta name="theme-color" content="#7952b3">
+    <title>Account Managment</title>
     <form id="form1" runat="server">
         <div runat="server">
             <nav class="navbar navbar-expand-lg navbar-dark bg-white">
@@ -17,7 +22,7 @@
                         <img src="Images/lock.jpg" width="100" height="100" />
                     </div>
                     <div style="float:left; color: black; font-size:30px; margin:15% 0 0 20px">
-                        Password Manager
+                        Account Managment
                     </div>
                     <!-- <a style="text-align:left;" class="navbar-brand" href="#">Digital Equity Center</a> -->
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,13 +41,40 @@
                     </div>
                 </nav>
             </div>
-
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
         </div>
     </form>
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        .body {
+            background: black;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
+<form id="resetPasswordForm">
+            <img class="mb-4" src="images/bootstrap-logo.svg" alt="" width="72" height="57">
+            <h1 class="h3 mb-3 fw-normal">Please Enter Registered Email</h1>
+            <div class="form-floating">
+                <input type="email" name="regedEmail" class="form-control" id="floatingEmail" placeholder="name@example.com">
+                <label for="floatingEmail">Email address</label>
+            </div>
+            <button class="w-100 btn btn-lg btn-primary mb-3" id="checkEmailBtn" type="submit">Authenticate</button>
+            <div class="w-100 btn btn-lg btn-warning" id="resetPasswordMessage">
+            </div>
+        </form>
 
 </body>
 </html>

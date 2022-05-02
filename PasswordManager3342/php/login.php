@@ -48,7 +48,7 @@
     }
     // print "cookie not found. Regular login <br>";
     // Build query to check if email and password match in database
-    $query = "Select * from User_Manager where Email='$Email' and Password='$Acc_Password';";      // Check if the user Email and encrypted Password match with database.
+    $query = "Select * from User_Manager where Email='$Email' and Acc_Password='$Password';";      // Check if the user Email and encrypted Password match with database.
     $result = mysqli_query($con, $query);
     if(!$result){   // If not match, set negative RegState, report "Either password or email not match", redirect back to index.php.
         // print "Login query failed, either password or email don't match: ".mysqli_error($con);
