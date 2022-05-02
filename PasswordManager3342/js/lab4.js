@@ -1,3 +1,5 @@
+
+
 var RegState = 0;
 $(document).ready(function(){
     // call readRegState here
@@ -138,7 +140,7 @@ $(document).ready(function(){
 		};
 		$.ajax({
 			type: 'GET',
-			url: 'php/authenticate.php',
+            url: 'php/authenticate.php', 
 			async: true,
 			data: formData,
 			dataType: 'json',

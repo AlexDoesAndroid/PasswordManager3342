@@ -17,7 +17,7 @@
 		echo json_encode($_SESSION);
 		exit();
 	}
-	//  Get web data 
+	//  Get web data
 	$FirstName = mysqli_real_escape_string($con, $_GET["FirstName"]);
 	$LastName = mysqli_real_escape_string($con, $_GET["LastName"]);
 	$Email = mysqli_real_escape_string($con, $_GET["Email"]);
@@ -42,19 +42,19 @@
 	// Ready to send authentication email
 	// Build the PHPMailer object:
 	$mail= new PHPMailer(true);
-	try { 
+	try {
 		$mail->SMTPDebug = 0; // No errors reporting to prevent breaking the ajax call
 		$mail->IsSMTP();
 		$mail->Host="smtp.gmail.com";
 		$mail->SMTPAuth=true;
-		$mail->Username="Group4CIS3342@gmail.com";
-		$mail->Password = "PasswordManager2022";
+		$mail->Username="groupfourcis3342project@gmail.com";
+        $mail->Password = "Gr0Up4Ema1LP@ssW0rd";
 		$mail->SMTPSecure = "ssl";
 		$mail->Port=465;
-		$mail->SMTPKeepAlive = true; 
+		$mail->SMTPKeepAlive = true;
 		$mail->Mailer = "smtp";
-		$mail->setFrom("Group4CIS3342@gmail.com", "S22CIS3342 Group 4");
-		$mail->addReplyTo("Group4CIS3342@gmail.com","S22CIS3342 Group 4");
+		$mail->setFrom("groupfourcis3342project@gmail.com", "S22CIS3342 Group 4");
+        $mail->addReplyTo("groupfourcis3342project@gmail.com","S22CIS3342 Group 4");
 		$msg = "Your authentication code is $Acode. Please complete the registration process on site.";
 		$mail->addAddress($Email,"$FirstName $LastName");
 		$mail->Subject = "Welcome to the Group 4's' Password Management App";
@@ -67,7 +67,7 @@
 	} catch (phpmailerException $e) {
 		$_SESSION["Message"] = "Mailer error: ".$e->errorMessage();
 		$_SESSION["RegState"] = 1;
-		// print "Mail send failed: ".$e->errorMessage;		
+		// print "Mail send failed: ".$e->errorMessage;
 	}
 	echo json_encode($_SESSION);
 	exit();

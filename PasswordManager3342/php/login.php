@@ -17,7 +17,7 @@
 
     //Check if cookie can be found
     // print "Webdata ($Email)($Password)(".$_SESSION["RememberMe"].") <br>";
-    
+
     $CookieName = md5("tuj43590");
     if(isset($_COOKIE[$CookieName])){
         // Check DB to see if SessionCode exists
@@ -36,7 +36,7 @@
             //Cookie Login Success
             // print "Cookie Log in Success <br>";
             $row = mysqli_fetch_assoc($result);
-            $_SESSION["FirstName"] = $row["FirstName"];    
+            $_SESSION["FirstName"] = $row["FirstName"];
             $_SESSION["LastName"] = $row["LastName"];
             $_SESSION["Email"] = $row["Email"];
             $_SESSION["RegState"] = 4;
@@ -48,7 +48,7 @@
     }
     // print "cookie not found. Regular login <br>";
     // Build query to check if email and password match in database
-    $query = "Select * from User_Manager where Email='$Email' and Password='$Password';";      // Check if the user Email and encrypted Password match with database.
+    $query = "Select * from User_Manager where Email='$Email' and Password='$Acc_Password';";      // Check if the user Email and encrypted Password match with database.
     $result = mysqli_query($con, $query);
     if(!$result){   // If not match, set negative RegState, report "Either password or email not match", redirect back to index.php.
         // print "Login query failed, either password or email don't match: ".mysqli_error($con);
@@ -63,7 +63,7 @@
         // print "NumRows: ".mysqli_num_rows($result)." <br>";
         $_SESSION["RegState"] = -1;
         echo json_encode($_SESSION);
-        exit();    
+        exit();
     }
     // logged in
     $row = mysqli_fetch_assoc($result);
@@ -86,7 +86,7 @@
     //Update DB
     $query = "update User_Manager set SessionCode = '$CookieContent', LoginDateTime='$Ldatetime' where Email='$Email';";
     $result = mysqli_query($con, $query);
-    if(!$result){   
+    if(!$result){
         // print "Login update query failed : ".mysqli_error($con);
         $_SESSION["Message"] = "Login update query failed : ".mysqli_error($con);
         $_SESSION["RegState"] = -2;
@@ -107,7 +107,7 @@
     setcookie($CookieName, $CookieContent, time()+86400, "/");
     $_SESSION["RegState"] = 4;
     $_SESSION["Message"] = "Logged in!";
-    // print "Cookie Created <br>"; 
+    // print "Cookie Created <br>";
     echo json_encode($_SESSION);
     exit();
 ?>

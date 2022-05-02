@@ -17,7 +17,7 @@
 		$_SESSION["Message"] = "Database connection failed: ".mysqli_error($con);
 		$_SESSION["RegState"] = 5;
 		echo json_encode($_SESSION);
-		exit();	
+		exit();
 	}
     print "database connected <br>";
     // Build Query
@@ -29,7 +29,7 @@
         $_SESSION["Message"] = "Check Email query failed: ".mysqli_error($con);
 		$_SESSION["RegState"] = 5;
         echo json_encode($_SESSION);
-		exit();	
+		exit();
     }
     // Check mysqli_num_rows() == 1
     if (mysqli_num_rows($result) != 1){
@@ -58,19 +58,19 @@
     print "Acode updated <br>";
     // build email to authenticate
     $mail= new PHPMailer(true);
-	try { 
+	try {
 		$mail->SMTPDebug = 2; // Wants to see all errors for now
 		$mail->IsSMTP();
 		$mail->Host="smtp.gmail.com";
 		$mail->SMTPAuth=true;
-		$mail->Username="Group4CIS3342@gmail.com";
-		$mail->Password = "PasswordManager2022";
+		$mail->Username="groupfourcis3342project@gmail.com";
+        $mail->Password = "Gr0Up4Ema1LP@ssW0rd";
 		$mail->SMTPSecure = "ssl";
 		$mail->Port=465;
-		$mail->SMTPKeepAlive = true; 
+		$mail->SMTPKeepAlive = true;
 		$mail->Mailer = "smtp";
-		$mail->setFrom("Group4CIS3342@gmail.com", "S22CIS3342 Group 4");
-		$mail->addReplyTo("Group4CIS3342@gmail.com","S22CIS3342 Group 4");
+		$mail->setFrom("groupfourcis3342project@gmail.com", "S22CIS3342 Group 4");
+        $mail->addReplyTo("groupfourcis3342project@gmail.com","S22CIS3342 Group 4");
 		$msg = "If you forgot your password you can use this code to reset: $Acode. Please complete the resetPassword process on site.";
 		$mail->addAddress($Email,"$FirstName $LastName");
 		$mail->Subject = "Welcome to the Group 4's' Password Management App";
@@ -83,7 +83,7 @@
 	} catch (phpmailerException $e) {
 		$_SESSION["Message"] = "Mailer error: ".$e->errorMessage();
 		$_SESSION["RegState"] = 5;
-		print "Mail send failed: ".$e->errorMessage;		
+		print "Mail send failed: ".$e->errorMessage;
 	}
     // Return
     echo json_encode($_SESSION);
