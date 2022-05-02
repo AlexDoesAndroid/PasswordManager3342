@@ -291,7 +291,7 @@ $(document).ready(function(){
 		event.preventDefault(e);
 		// Get form data items
 		var formData = {
-		  'regedEmail': $('input[name=regedEmail').val()
+		  'Email': $('input[name=regedEmail').val()
 		};
 		$.ajax({
 			type: 'GET',
